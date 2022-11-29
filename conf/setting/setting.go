@@ -13,11 +13,18 @@ import (
 type Setting struct {
 	RunMode string `yaml:"runMode"`
 	// 服务配置
-	APP_PORT string `yaml:"APP_PORT"`
+	Project project `yaml:"project"`
 
-	DATABASE database `yaml:"database"`
+	DataBase database `yaml:"database"`
 
-	REDIS redis `yaml:"redis"`
+	Redis redis `yaml:"redis"`
+}
+
+type project struct {
+	// 项目配置
+	APP_PORT     string `yaml:"APP_PORT"`
+	APP_ENV      string `yaml:"APP_ENV"`
+	PROJECT_NAME string `yaml:"PROJECT_NAME"`
 }
 
 type database struct {

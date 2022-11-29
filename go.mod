@@ -1,4 +1,5 @@
-module gin_server
+// module gin_server
+module github.com/hanxiaodian/gin_server
 
 go 1.19
 

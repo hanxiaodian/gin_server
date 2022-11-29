@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"gin_server/app/captcha"
-	"gin_server/app/user"
-	"gin_server/conf/setting"
-	"gin_server/routers"
+	"github.com/hanxiaodian/gin_server/app/captcha"
+	"github.com/hanxiaodian/gin_server/app/user"
+	"github.com/hanxiaodian/gin_server/conf/setting"
+	"github.com/hanxiaodian/gin_server/routers"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 	conf := setting.Conf()
 	// 初始化路由
 	r := routers.Init()
-	if err := r.Run(conf.APP_PORT); err != nil {
-		fmt.Println("startup service failed, err:%v\n", err)
+	if err := r.Run(conf.Project.APP_PORT); err != nil {
+		fmt.Println("startup service failed, err: %v\n", err)
 	}
 }
