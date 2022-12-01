@@ -11,20 +11,20 @@ import (
 
 // 相应设置配置
 type Setting struct {
-	RunMode string `yaml:"runMode"`
 	// 服务配置
-	Project project `yaml:"project"`
-
-	DataBase database `yaml:"database"`
-
-	Redis redis `yaml:"redis"`
+	Project  project  `yaml:"PROJECT"`
+	DataBase database `yaml:"DATABASE"`
+	Redis    redis    `yaml:"REDIS"`
+	Jwt      jwt      `yaml:"JWT"`
+	SMS      sms      `yaml:"SMS_TEMPLATE"`
 }
 
 type project struct {
 	// 项目配置
-	APP_PORT     string `yaml:"APP_PORT"`
-	APP_ENV      string `yaml:"APP_ENV"`
-	PROJECT_NAME string `yaml:"PROJECT_NAME"`
+	APP_PORT      string `yaml:"APP_PORT"`
+	APP_ENV       string `yaml:"APP_ENV"`
+	PROJECT_NAME  string `yaml:"PROJECT_NAME"`
+	WRITE_SWAGGER string `yaml:"WRITE_SWAGGER"`
 }
 
 type database struct {
@@ -41,9 +41,28 @@ type database struct {
 type redis struct {
 	// redis配置
 	REDIS_HOST     string `yaml:"REDIS_HOST"`
-	REDIS_PORT     int    `yaml:"REDIS_PORT"`
+	REDIS_PORT     string `yaml:"REDIS_PORT"`
 	REDIS_PASSWORD string `yaml:"REDIS_PASSWORD"`
 	REDIS_DB       int    `yaml:"REDIS_DB"`
+}
+
+type sms struct {
+	TENCENT_CAPTCHA_SECRET_KEY string `yaml:"TENCENT_CAPTCHA_SECRET_KEY"`
+	TENCENT_CAPTCHA_SECRET_ID  string `yaml:"TENCENT_CAPTCHA_SECRET_ID"`
+	TENCENT_CAPTCHA_APP_ID     string `yaml:"TENCENT_CAPTCHA_APP_ID"`
+	TENCENT_CAPTCHA_APP_SECRET string `yaml:"TENCENT_CAPTCHA_APP_SECRET"`
+	MONTNETS_SMS_USER_ID       string `yaml:"MONTNETS_SMS_USER_ID"`
+	MONTNETS_SMS_PWD           string `yaml:"MONTNETS_SMS_PWD"`
+	MONTNETS_SMS_API_KEY       string `yaml:"MONTNETS_SMS_API_KEY"`
+	MONTNETS_SMS_HOST          string `yaml:"MONTNETS_SMS_HOST"`
+	MONTNETS_SMS_PORT          string `yaml:"MONTNETS_SMS_PORT"`
+}
+
+type jwt struct {
+	// JWT 配置
+	REDIS_HOST     string `yaml:"JWT_SECRET"`
+	REDIS_PORT     string `yaml:"JWT_COOKIE_VERIFY"`
+	REDIS_PASSWORD string `yaml:"COOKIE_SALT"`
 }
 
 var conf = &Setting{}
@@ -59,13 +78,13 @@ func InitSetting() {
 	yamlFile, err := ioutil.ReadFile(filepath.Join(serverPath, "./config.local.yaml"))
 	if err != nil {
 		// 错误处理
-		fmt.Println("ioutil.ReadFile    failed")
+		fmt.Println("ioutil.ReadFile failed: ", err)
 	}
 
 	err = yaml.Unmarshal(yamlFile, conf)
 	if err != nil {
 		// 获取错误处理
-		fmt.Println("yaml.Unmarshal    failed")
+		fmt.Println("yaml.Unmarshal failed: ", err)
 	}
 }
 

@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/hanxiaodian/gin_server/app/captcha"
-	"github.com/hanxiaodian/gin_server/app/user"
-	"github.com/hanxiaodian/gin_server/conf/setting"
-	"github.com/hanxiaodian/gin_server/routers"
+	"gin_server/app/captcha"
+	"gin_server/app/user"
+	"gin_server/conf/setting"
+	"gin_server/routers"
+	"gin_server/util"
 )
 
 func main() {
@@ -15,6 +16,10 @@ func main() {
 	// 加载环境变量配置
 	setting.InitSetting()
 	conf := setting.Conf()
+	// MySQL连接
+	util.InitDB()
+	// Redis连接
+	util.GetRedis()
 	// 初始化路由
 	r := routers.Init()
 	if err := r.Run(conf.Project.APP_PORT); err != nil {
