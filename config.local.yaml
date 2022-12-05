@@ -1,67 +1,62 @@
-JWT:
-  JWT_SECRET:
-    'best-global-server'
-  JWT_COOKIE_VERIFY:
-    'false'
-  COOKIE_SALT:
-    'anything-for-cookie-salt'
+JWT_SECRET:
+  'best-global-server'
+JWT_COOKIE_VERIFY:
+  'false'
+COOKIE_SALT:
+  'anything-for-cookie-salt'
 
-PROJECT:
-  APP_PORT:
-    :3100
-  APP_ENV:
-    'prod'
-  PROJECT_NAME:
-    'default'
-  SENSITIVE_KEY:
-    ''
-  EVENT_OUTPUT_PATH:
-    ''
-  WRITE_SWAGGER:
-    'false'
+APP_PORT:
+  :3100
+APP_ENV:
+  'local'
+PROJECT_NAME:
+  'local'
+SENSITIVE_KEY:
+  ''
+EVENT_OUTPUT_PATH:
+  ''
+WRITE_SWAGGER:
+  'false'
 
-DATABASE:
-  MYSQL_USERNAME:
-    ''
-  MYSQL_PASSWORD:
-    ''
-  MYSQL_DATABASE:
-    ''
-  MYSQL_WRITER_PORT:
-    '3306'
-  MYSQL_WRITER_HOST:
-    'localhost'
-  MYSQL_READER_PORT:
-    '3306'
-  MYSQL_READER_HOST:
-    ''
+MYSQL_USERNAME:
+  'root'
+MYSQL_PASSWORD:
+  '1423lengyue'
+MYSQL_DATABASE:
+  'go-learn'
+MYSQL_WRITER_PORT:
+  '3306'
+MYSQL_WRITER_HOST:
+  'localhost'
+MYSQL_READER_PORT:
+  '3306'
+MYSQL_READER_HOST:
+  ''
 
-REDIS:
-  REDIS_HOST:
-    ''
-  REDIS_PORT:
-    '6379'
-  REDIS_PASSWORD:
-    ''
-  REDIS_DB:
-    0
+REDIS_HOST:
+  'localhost'
+REDIS_PORT:
+  6379
+REDIS_PASSWORD:
+  ''
+REDIS_DB:
+  0
 
-SMS_TEMPLATE:
-  TENCENT_CAPTCHA_SECRET_KEY:
-    ''
-  TENCENT_CAPTCHA_SECRET_ID:
-    ''
-  TENCENT_CAPTCHA_APP_ID:
-    0
-  TENCENT_CAPTCHA_APP_SECRET:
-    ''
-  MONTNETS_SMS_USER_ID:
-    ''
-  MONTNETS_SMS_PWD:
-    ''
-  MONTNETS_SMS_API_KEY:
-    ''
-  MONTNETS_SMS_HOST:
-    ''
-  MONTNETS_SMS_PORT:
-    ''
+TENCENT_CAPTCHA_SECRET_KEY:
+  ''
+TENCENT_CAPTCHA_SECRET_ID:
+  ''
+TENCENT_CAPTCHA_APP_ID:
+  0
+TENCENT_CAPTCHA_APP_SECRET:
+  ''
+MONTNETS_SMS_USER_ID:
+  ''
+MONTNETS_SMS_PWD:
+  ''
+MONTNETS_SMS_API_KEY:
+  ''
+MONTNETS_SMS_HOST:
+  ''
+MONTNETS_SMS_PORT:
+  ''

@@ -6,20 +6,20 @@ import (
 	"gin_server/app/captcha"
 	"gin_server/app/user"
 	"gin_server/conf/setting"
+	"gin_server/lib"
 	"gin_server/routers"
-	"gin_server/util"
 )
 
 func main() {
-	// 加载多个APP的路由配置
+	// 加载多个 APP 的路由配置
 	routers.Include(user.Users, captcha.Captchas)
 	// 加载环境变量配置
 	setting.InitSetting()
-	conf := setting.Conf()
-	// MySQL连接
-	util.InitDB()
-	// Redis连接
-	util.GetRedis()
+	conf, _ := setting.Conf()
+	// MySQL 连接
+	lib.InitDB()
+	// Redis 连接
+	lib.GetRedis()
 	// 初始化路由
 	r := routers.Init()
 	if err := r.Run(conf.Project.APP_PORT); err != nil {

@@ -1,16 +1,16 @@
 JWT_SECRET:
-  'golang-server-test'
+  'golang-zt-server-prod'
 JWT_COOKIE_VERIFY:
   'false'
 COOKIE_SALT:
-  'golang-server-test-for-cookie-salt'
+  'golang-zt-server-test-for-cookie-salt'
 
 APP_PORT:
-  ':3001'
+  ':3000'
 APP_ENV:
-  'test'
+  'prod'
 PROJECT_NAME:
-  'test-default'
+  'default'
 SENSITIVE_KEY:
   ''
 EVENT_OUTPUT_PATH:
@@ -19,15 +19,15 @@ WRITE_SWAGGER:
   'false'
 
 MYSQL_USERNAME:
-  'root-test'
+  'zt-server'
 MYSQL_PASSWORD:
   ''
 MYSQL_DATABASE:
-  'go-test'
+  'go'
 MYSQL_WRITER_PORT:
   '3306'
 MYSQL_WRITER_HOST:
-  'localhost'
+  ''
 MYSQL_READER_PORT:
   '3306'
 MYSQL_READER_HOST:
