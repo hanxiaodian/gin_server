@@ -1,4 +1,4 @@
-package routers
+package year
 
 import (
 	"net/http"
@@ -6,12 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func captchaHandler(c *gin.Context) {
+func LoginHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "your captcha is 123456!",
 	})
-}
-
-func LoadCaptcha(e *gin.Engine) {
-	e.GET("/captcha", captchaHandler)
 }

@@ -45,14 +45,14 @@ type Env struct {
 // 相应设置配置
 type Setting struct {
 	// 服务配置
-	Project  project  `yaml:"PROJECT"`
-	DataBase database `yaml:"DATABASE"`
-	Redis    redis    `yaml:"REDIS"`
-	Jwt      jwt      `yaml:"JWT"`
-	SMS      sms      `yaml:"SMS_TEMPLATE"`
+	Project  Project  `yaml:"PROJECT"`
+	DataBase Database `yaml:"DATABASE"`
+	Redis    Redis    `yaml:"REDIS"`
+	Jwt      Jwt      `yaml:"JWT"`
+	SMS      SMS      `yaml:"SMS_TEMPLATE"`
 }
 
-type project struct {
+type Project struct {
 	// 项目配置
 	APP_PORT      string `yaml:"APP_PORT"`
 	APP_ENV       string `yaml:"APP_ENV"`
@@ -60,7 +60,7 @@ type project struct {
 	WRITE_SWAGGER string `yaml:"WRITE_SWAGGER"`
 }
 
-type database struct {
+type Database struct {
 	// 数据库配置
 	MYSQL_USERNAME    string `yaml:"MYSQL_USERNAME"`
 	MYSQL_PASSWORD    string `yaml:"MYSQL_PASSWORD"`
@@ -71,7 +71,7 @@ type database struct {
 	MYSQL_DATABASE    string `yaml:"MYSQL_DATABASE"`
 }
 
-type redis struct {
+type Redis struct {
 	// redis 配置
 	REDIS_HOST     string `yaml:"REDIS_HOST"`
 	REDIS_PORT     int32  `yaml:"REDIS_PORT"`
@@ -79,7 +79,7 @@ type redis struct {
 	REDIS_DB       int    `yaml:"REDIS_DB"`
 }
 
-type sms struct {
+type SMS struct {
 	TENCENT_CAPTCHA_SECRET_KEY string `yaml:"TENCENT_CAPTCHA_SECRET_KEY"`
 	TENCENT_CAPTCHA_SECRET_ID  string `yaml:"TENCENT_CAPTCHA_SECRET_ID"`
 	TENCENT_CAPTCHA_APP_ID     string `yaml:"TENCENT_CAPTCHA_APP_ID"`
@@ -91,7 +91,7 @@ type sms struct {
 	MONTNETS_SMS_PORT          string `yaml:"MONTNETS_SMS_PORT"`
 }
 
-type jwt struct {
+type Jwt struct {
 	// JWT 配置
 	JWT_SECRET        string `yaml:"JWT_SECRET"`
 	JWT_COOKIE_VERIFY string `yaml:"JWT_COOKIE_VERIFY"`
@@ -152,14 +152,14 @@ func InitSetting() {
 		// 优先读取 .local.yaml 的配置信息
 		if !reflect.DeepEqual(localValue.Interface(), reflect.Zero(localValue.Type()).Interface()) {
 			values.Field(i).Set(localValue)
-			fmt.Println("localValue:   ", localValue)
+			// fmt.Println("localValue:   ", localValue)
 			continue
 		}
 
 		// 其次读取 .test.yaml 的配置信息
 		if !reflect.DeepEqual(testValue.Interface(), reflect.Zero(testValue.Type()).Interface()) {
 			values.Field(i).Set(testValue)
-			fmt.Println("testValue:   ", testValue)
+			// fmt.Println("testValue:   ", testValue)
 			continue
 		}
 		values.Field(i).Set(value)
@@ -170,13 +170,13 @@ func InitSetting() {
 func Conf() (config *Setting, env *Env) {
 	conf := result
 	setting := &Setting{
-		Project: project{
+		Project: Project{
 			APP_ENV:       conf.APP_ENV,
 			APP_PORT:      conf.APP_PORT,
 			PROJECT_NAME:  conf.PROJECT_NAME,
 			WRITE_SWAGGER: conf.WRITE_SWAGGER,
 		},
-		DataBase: database{
+		DataBase: Database{
 			MYSQL_USERNAME:    conf.MYSQL_USERNAME,
 			MYSQL_PASSWORD:    conf.MYSQL_PASSWORD,
 			MYSQL_WRITER_PORT: conf.MYSQL_WRITER_PORT,
@@ -185,18 +185,18 @@ func Conf() (config *Setting, env *Env) {
 			MYSQL_READER_HOST: conf.MYSQL_READER_HOST,
 			MYSQL_DATABASE:    conf.MYSQL_DATABASE,
 		},
-		Redis: redis{
+		Redis: Redis{
 			REDIS_DB:       conf.REDIS_DB,
 			REDIS_HOST:     conf.REDIS_HOST,
 			REDIS_PORT:     conf.REDIS_PORT,
 			REDIS_PASSWORD: conf.REDIS_PASSWORD,
 		},
-		Jwt: jwt{
+		Jwt: Jwt{
 			JWT_SECRET:        conf.JWT_SECRET,
 			COOKIE_SALT:       conf.COOKIE_SALT,
 			JWT_COOKIE_VERIFY: conf.JWT_COOKIE_VERIFY,
 		},
-		SMS: sms{},
+		SMS: SMS{},
 	}
 	return setting, conf
 }

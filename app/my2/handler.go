@@ -1,4 +1,4 @@
-package user
+package my2
 
 import (
 	"net/http"
@@ -6,8 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func userHandler(c *gin.Context) {
+func captchaHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
-		"message": "hello friends!",
+		"message": "your captcha is 123456!",
 	})
 }

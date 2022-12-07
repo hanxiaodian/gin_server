@@ -1,5 +1,7 @@
 git.shiyou.kingsoft.com/go/errors v1.0.1 h1:na6gY00M+NoHpu5qWYRFrZwLOTqdbQt+6/z64w2AS4U=
 git.shiyou.kingsoft.com/go/errors v1.0.1/go.mod h1:XAxbphZ5m4qJZWN4gzst/vLOtllNtgaTmlNBxIMViBs=
+git.shiyou.kingsoft.com/go/graceful v1.0.1 h1:piL+4ZkQfjzaz0rkZqKIOkAFSVvEJRAbdq1aQtofY8A=
+git.shiyou.kingsoft.com/go/graceful v1.0.1/go.mod h1:H2K9zFS1YWy7gBXi1vqRSP6CjIEWyXLts9w6zQvWkmQ=
 git.shiyou.kingsoft.com/go/log v0.1.3 h1:Znm9/MH26kN42acjP6oivzK3Cl+DbYlP0lCCtAQWWOk=
 git.shiyou.kingsoft.com/go/log v0.1.3/go.mod h1:A+THv5tlCl3ip+IeV8CljuYcwNzhfXuMZUJpuZ2hORw=
 git.shiyou.kingsoft.com/server/util v0.0.7 h1:OwH98bmNU52ZisNtzXyNAN4zeWQ0CfaOjyRQZcNlC4A=

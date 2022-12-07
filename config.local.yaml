@@ -10,7 +10,7 @@ APP_PORT:
 APP_ENV:
   'local'
 PROJECT_NAME:
-  'local'
+  'paopao'
 SENSITIVE_KEY:
   ''
 EVENT_OUTPUT_PATH:

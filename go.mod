@@ -8,6 +8,7 @@ require github.com/gin-gonic/gin v1.8.1
 
 require (
 	git.shiyou.kingsoft.com/go/errors v1.0.1 // indirect
+	git.shiyou.kingsoft.com/go/graceful v1.0.1 // indirect
 	git.shiyou.kingsoft.com/go/log v0.1.3 // indirect
 	git.shiyou.kingsoft.com/server/util v0.0.7 // indirect
 	github.com/fatih/color v1.13.0 // indirect

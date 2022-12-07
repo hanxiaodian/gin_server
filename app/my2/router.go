@@ -1,9 +1,9 @@
-package captcha
+package my2
 
 import (
 	"github.com/gin-gonic/gin"
 )
 
-func Captchas(e *gin.Engine) {
+func Routers(e *gin.RouterGroup) {
 	e.GET("/captcha", captchaHandler)
 }

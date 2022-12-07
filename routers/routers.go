@@ -1,32 +1,19 @@
 package routers
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+
+	"gin_server/app/my2"
+	"gin_server/app/paopao"
 )
 
-func healthHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": "hello world!",
-	})
-}
-
-type Option func(*gin.Engine)
-
-var options = []Option{}
-
-// 注册app的路由配置
-func Include(opts ...Option) {
-	options = append(options, opts...)
-}
-
 // 初始化
-func Init() *gin.Engine {
-	r := gin.New()
-	for _, opt := range options {
-		opt(r)
+func InitRouter(group *gin.RouterGroup, project string) {
+	switch project {
+	case "paopao":
+		paopao.Routers(group)
+	case "my2":
+		my2.Routers(group)
+	default:
 	}
-	r.GET("/health", healthHandler)
-	return r
 }
