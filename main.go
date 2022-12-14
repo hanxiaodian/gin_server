@@ -14,12 +14,15 @@ import (
 
 	"git.shiyou.kingsoft.com/go/graceful"
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 )
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
+	log := logrus.New()
 	// 中间件加载
-	r.Use(middleware.HealthCheck, middleware.NoCache, middleware.CorsByRules())
+	r.Use(middleware.RequestLogger(log, "/", "/health"), middleware.HealthCheck, middleware.NoCache, middleware.CorsByRules())
 
 	// 部分项目功能初始化
 	conf := serverInit(r)
