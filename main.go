@@ -19,7 +19,7 @@ import (
 func main() {
 	r := gin.Default()
 	// 中间件加载
-	r.Use(middleware.HealthCheck)
+	r.Use(middleware.HealthCheck, middleware.NoCache, middleware.CorsByRules())
 
 	// 部分项目功能初始化
 	conf := serverInit(r)
